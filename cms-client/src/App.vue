@@ -1,17 +1,19 @@
 <template>
   <div id="app">
-    <Navbar/>
     <router-view/>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'App',
-  components: {
-    Navbar
+  created () {
+    if (localStorage.access_token) {
+      this.$router.push('/')
+    } else {
+      this.$router.push('/login')
+    }
   }
 }
 </script>
