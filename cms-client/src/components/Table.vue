@@ -40,8 +40,8 @@ export default {
     deleteProduct (id) {
       this.$store.dispatch('deleteProduct', id)
     },
-    editProduct (productData) {
-
+    editProduct (id) {
+      this.$store.dispatch('getProduct', id)
     }
   },
   created () {

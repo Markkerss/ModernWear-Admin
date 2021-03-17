@@ -1,5 +1,6 @@
 <template>
   <div id="add-page">
+    <Navbar />
     <div class="masthead d-flex align-items-center justify-content-center" id="add-page-css">
       <div id="add-card" class="card shadow p-3 mb-5 bg-body rounded text-left" >
         <div class="card-body">
@@ -32,7 +33,13 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue'
+
 export default {
+  name: 'AddPage',
+  components: {
+    Navbar
+  },
   data () {
     return {
       name: '',
@@ -55,7 +62,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   #add-page-css {
     height: 100vh;
     min-height: 500px;

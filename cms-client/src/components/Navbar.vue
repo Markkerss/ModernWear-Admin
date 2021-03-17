@@ -12,7 +12,7 @@
           </li>
         </ul>
           <div class="nav-item navbar-nav" style="padding-right: 20px">
-            <router-link to="/logout">Log Out</router-link>
+            <router-link to="/login"><a @click.prevent="logout()">Log Out</a></router-link>
           </div>
       </div>
     </nav>
@@ -21,7 +21,16 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  methods: {
+    logout () {
+      localStorage.removeItem('access_token')
+      localStorage.removeItem('id')
+      localStorage.removeItem('email')
+      localStorage.removeItem('role')
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
 
