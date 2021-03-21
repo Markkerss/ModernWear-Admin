@@ -45,7 +45,6 @@ export default {
     editProduct () {
       const id = this.product.id
       this.$store.dispatch('editProduct', id)
-      this.$router.push('/')
     }
   },
   computed: {

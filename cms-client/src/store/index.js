@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from '@/axios/axios.js'
+import axios from '../axios/axios'
 import router from '@/router/index.js'
+import Swal from 'sweetalert2'
 
 Vue.use(Vuex)
 
@@ -31,6 +32,11 @@ export default new Vuex.Store({
         })
         .catch(err => {
           console.log(err)
+          Swal.fire(
+            'Oops!',
+            'Invalid email/password',
+            'error'
+          )
         })
     },
     getProducts (context, payload) {
@@ -62,7 +68,16 @@ export default new Vuex.Store({
           router.push('/')
         })
         .catch(err => {
-          console.log(err)
+          let errors = ''
+          err.response.data.map(error => {
+            errors += String(error.message) + ', '
+          })
+          errors = errors.slice(0, -2)
+          Swal.fire(
+            'Oops!',
+            `${errors}`,
+            'error'
+          )
         })
     },
     deleteProduct (context, payload) {
@@ -95,9 +110,19 @@ export default new Vuex.Store({
         })
         .then(() => {
           context.dispatch('getProducts')
+          router.push('/')
         })
         .catch(err => {
-          console.log(err)
+          let errors = ''
+          err.response.data.map(error => {
+            errors += String(error.message) + ', '
+          })
+          errors = errors.slice(0, -2)
+          Swal.fire(
+            'Oops!',
+            `${errors}`,
+            'error'
+          )
         })
     },
     getProduct (context, payload) {
