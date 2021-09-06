@@ -1,5 +1,12 @@
 # cms-client
 
+## Admin Credentials
+```
+Admin Credentials:
+- email: admin@mail.com
+- password: admin12345
+```
+
 ## Project setup
 ```
 npm install
