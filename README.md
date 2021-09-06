@@ -2,9 +2,8 @@
 
 ## Admin Credentials
 ```
-Admin Credentials:
-- email: admin@mail.com
-- password: admin12345
+email: admin@mail.com
+password: admin12345
 ```
 
 ## Project setup
